@@ -4,13 +4,13 @@ import axios from 'axios'
 import '../styles/Main.css'
 import { Link } from 'react-router-dom'
 export default function BietThu(props) {
-    const { onAdd } = props;
-    let DataFil = props.DataFil.filter((ele) => {
-        return ele.title.toLowerCase().includes(props.search.toLowerCase()) && ele.type.value === "bietthu"
+    const {DataFil, onAdd , search} = props;
+    let DataFill = DataFil.filter((ele) => {
+        return ele.title.toLowerCase().includes(search.toLowerCase()) && ele.type.value === "bietthu"
     })
     return (
         <div class="row">
-            {DataFil.map((ele, index) => (
+            {DataFill.map((ele, index) => (
                 <div class="column" key={index}>
                     <CCard >
                         <CCardImage orientation="top" src={ele.avatar} />

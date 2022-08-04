@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Main.css'
 import { Link } from 'react-router-dom';
 export default function AllProduct(props) {
-    const {cartItems, onAdd } = props;
-    let DataFil = props.DataFil.filter((ele) => {
-        return ele.title.toLowerCase().includes(props.search.toLowerCase())
+    const {DataFil, cartItems, onAdd ,search} = props;
+    let DataFill = DataFil.filter((ele) => {
+        return ele.title.toLowerCase().includes(search.toLowerCase())
     })
 
     const [StateId, setStateId] = useState("")
-    const Data = props.DataFil.filter((ele) => {
+    const Data = DataFil.filter((ele) => {
         return ele.id === StateId
     })
 
@@ -22,7 +22,7 @@ export default function AllProduct(props) {
     console.log(cartItems)
     return (
         <div class="row">
-            {DataFil && DataFil.map((ele, index) => (
+            {DataFill && DataFill.map((ele, index) => (
                 <div class="column" key={ele.id} onClick={(e) => setStateId(ele.id)}>
                     <CCard>
                         <CCardImage orientation="top" src={ele.avatar} />

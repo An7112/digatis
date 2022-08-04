@@ -3,12 +3,13 @@ import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@c
 import '../styles/Main.css'
 import { Link } from 'react-router-dom'
 export default function Condotel(props) {
-    let DataFil = props.DataFil.filter((ele) => {
-        return ele.title.toLowerCase().includes(props.search.toLowerCase()) && ele.type.value === "condotel"
+    const { onAdd ,DataFil ,search} = props;
+    let DataFill = DataFil.filter((ele) => {
+        return ele.title.toLowerCase().includes(search.toLowerCase()) && ele.type.value === "condotel"
     })
-    const { onAdd } = props;
+
     const [StateId, setStateId] = useState("")
-    const Data = props.DataFil.filter((ele) => {
+    const Data = DataFil.filter((ele) => {
         return ele.id === StateId
     })
 
@@ -19,7 +20,7 @@ export default function Condotel(props) {
     }, 5000)
     return (
         <div class="row">
-            {DataFil.map((ele, index) => (
+            {DataFill.map((ele, index) => (
                 <div class="column" key={index} onClick={(e) => setStateId(ele.id)}>
                     <CCard >
                         <CCardImage orientation="top" src={ele.avatar} />
