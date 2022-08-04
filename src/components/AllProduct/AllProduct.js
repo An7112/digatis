@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Main.css'
 import { Link } from 'react-router-dom';
 export default function AllProduct(props) {
-    const {DataFil, cartItems, onAdd ,search} = props;
+    const { DataFil, cartItems, onAdd, search } = props;
     let DataFill = DataFil.filter((ele) => {
         return ele.title.toLowerCase().includes(search.toLowerCase())
     })
@@ -13,7 +13,6 @@ export default function AllProduct(props) {
     const Data = DataFil.filter((ele) => {
         return ele.id === StateId
     })
-
     const [NoneCheck, setNoneCheck] = useState("none")
     const [StateBan, setStateBan] = useState(false)
     setTimeout(() => {
@@ -30,15 +29,15 @@ export default function AllProduct(props) {
                             <h5>{ele.type.name}</h5>
                         </div>
                         <i class='bx bx-heart' onClick={() => onAdd(ele)}></i>
-                            <CCardBody  onClick={() => setNoneCheck("")}>
-                                <CCardTitle>{ele.title}</CCardTitle>
-                                <CCardText>
-                                    {ele.address}
-                                </CCardText>
-                                <CCardText>
+                        <CCardBody onClick={() => setNoneCheck("")}>
+                            <CCardTitle>{ele.title}</CCardTitle>
+                            <CCardText>
+                                {ele.address}
+                            </CCardText>
+                            <CCardText>
                                 <p>Giá từ:</p> <span>{ele.price.from} - {ele.price.to} tỷ</span>
-                                </CCardText>
-                            </CCardBody>
+                            </CCardText>
+                        </CCardBody>
                     </CCard>
                 </div>
             ))}

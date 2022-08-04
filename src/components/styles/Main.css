@@ -6,11 +6,15 @@
 
 .Home_page .Header {
     display: flex;
+    top: 0;
     flex-direction: row;
+    position: fixed;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 110px;
+    z-index: 999;
+    height: 100px;
+    background-color: white;
 }
 
 .Header .Logo_here {
@@ -40,6 +44,7 @@
     flex-direction: row;
     width: 18%;
     height: 100%;
+    position: relative;
 }
 
 .Love_page h3{
@@ -52,7 +57,13 @@
     font-size: 30px;
     color: rgb(83, 43, 63);
 }
+.Love_page h5{
+    position: absolute;
+    top: 1rem;
+    left: 7rem;
+ }
 .Home_page .Page_Poster {
+    margin-top: 100px;
     position: relative;
     width: 100%;
     height: 800px;
@@ -374,6 +385,7 @@ a{
     border-radius: 10px;
 }
 .item_cart h5{
+    padding-top: 0.5rem;
     color: white;
 }
 .Order .Cart_shop{
@@ -538,18 +550,27 @@ a{
 .card-text span{
     font-weight: bolder;
 }
+.column .Alert{
+    position: absolute;
+    width: 300px;
+    height: 80px;
+    background-color: #223035;
+    z-index: 999;
+}
 @media screen and (max-width:700px) {
     .Home_page {
         width: 100%;
     }
-
+    .Home_page .Header{
+        height: 50px;
+    }
     .Header .Logo_here {
         width: 40%;
     }
 
     .Logo_here img {
         width: 50%;
-        height: 50%;
+        height: 80%;
     }
 
     .Logo_here h3 {
@@ -573,6 +594,7 @@ a{
     }
 
     .Home_page .Page_Poster {
+        margin-top: 50px;
         width: 100%;
         height: 300px;
     }
@@ -716,5 +738,26 @@ a{
     .box_image_detail .box_content.price{
         width: 100%;
         height: 60px;
+    }
+    .cart__list .row{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .cart__list .row .column{
+        padding: 0;
+        width: 48%;
+        margin: 0 0 0.5rem 0;
+    }
+    .item_cart h5{
+        font-size: 10px;
+    }
+}
+@media screen and (min-width:820px) {
+    .Home_page .Header{
+        height: 100px;
+    }
+    .Home_page .Page_Poster{
+        margin-top: 100px;
     }
 }

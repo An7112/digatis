@@ -99,7 +99,7 @@ export default function Homepage() {
             setCartItems(cartItems.filter((x) => x.id !== product.id));
         }
     };
-    console.log(activeSearch)
+
     return (
         <div className='Home_page'>
             <div className='Header'>
@@ -111,6 +111,7 @@ export default function Homepage() {
                 <div className='Love_page' onClick={() => setNone("")}>
                     <i class='bx bxs-heart'></i>
                     <h3>Ưa thích</h3>
+                    <h5>{cartItems.length}</h5>
                 </div>
             </div>
             <div id='overlay' style={{ display: none }}>
