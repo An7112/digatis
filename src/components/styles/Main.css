@@ -42,7 +42,7 @@
     align-items: center;
     justify-content: start;
     flex-direction: row;
-    width: 18%;
+    width: 10%;
     height: 100%;
     position: relative;
 }
@@ -59,8 +59,7 @@
 }
 .Love_page h5{
     position: absolute;
-    top: 1rem;
-    left: 7rem;
+    right: 0;
  }
 .Home_page .Page_Poster {
     margin-top: 100px;
@@ -372,7 +371,7 @@ a{
     margin-top: 0.5rem;
     width: 96%;
     height: 100%;
-    background: linear-gradient(-45deg, #b8b3b1, #332e30, #223035, #303836);
+    background: linear-gradient(-45deg, #1e283a, #8f8388, #457586, #101a17);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
@@ -557,7 +556,7 @@ a{
     background-color: #223035;
     z-index: 999;
 }
-@media screen and (max-width:700px) {
+@media screen and (max-width:768px) {
     .Home_page {
         width: 100%;
     }
@@ -580,7 +579,7 @@ a{
 
     .Header .Love_page {
         justify-content: center;
-        width: 40%;
+        width: 30%;
     }
 
     .Love_page i {
@@ -592,7 +591,12 @@ a{
         font-size: 10px;
         padding: 0;
     }
-
+    .Love_page h5 {
+        top: 20%;
+        right: 10%;
+        font-size: 10px;
+        padding: 0;
+    }
     .Home_page .Page_Poster {
         margin-top: 50px;
         width: 100%;
@@ -759,5 +763,30 @@ a{
     }
     .Home_page .Page_Poster{
         margin-top: 100px;
+    }
+    .Love_page h5 {
+        top: 20%;
+        right: 10%;
+        font-size: 22px;
+        padding: 0;
+    }
+}
+@media screen and (max-width:280px) {
+    .Page_Poster .Box_Filter{
+        width: 90%;
+    }
+    .Box_fill .Fill_Product h5{
+        font-size: 6px;
+    }
+    .Box_fill .Fil_Product h5{
+        font-size: 6px;
+    }
+    .Header .Love_page{
+        width: 40%;
+    }
+}
+@media screen and (width:768px) {
+    .Header .Love_page {
+        width: 20%;
     }
 }

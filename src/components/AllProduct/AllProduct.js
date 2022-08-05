@@ -18,13 +18,13 @@ export default function AllProduct(props) {
     setTimeout(() => {
         setStateBan(!StateBan);
     }, 5000)
-    console.log(cartItems)
+
     return (
         <div class="row">
             {DataFill && DataFill.map((ele, index) => (
                 <div class="column" key={ele.id} onClick={(e) => setStateId(ele.id)}>
                     <CCard>
-                        <CCardImage orientation="top" src={ele.avatar} />
+                        <CCardImage orientation="top" src={ele.avatar}/>
                         <div className='typeItem'>
                             <h5>{ele.type.name}</h5>
                         </div>
