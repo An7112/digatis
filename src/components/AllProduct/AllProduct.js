@@ -2,9 +2,11 @@ import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@c
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import '../styles/Main.css'
+import cn from "classnames";
 import { Link } from 'react-router-dom';
+import LikeButton from './LikeButton';
 export default function AllProduct(props) {
-    const { DataFil, cartItems, onAdd, search } = props;
+    const { DataFil, cartItems, onAdd, search} = props;
     let DataFill = DataFil.filter((ele) => {
         return ele.title.toLowerCase().includes(search.toLowerCase())
     })
@@ -18,18 +20,23 @@ export default function AllProduct(props) {
     setTimeout(() => {
         setStateBan(!StateBan);
     }, 5000)
-
+    const [AddUn, setAddUn] = useState()
+    const callbackFunction = (childData) => {
+        setAddUn(childData)
+      }
     return (
         <div class="row">
             {DataFill && DataFill.map((ele, index) => (
                 <div class="column" key={ele.id} onClick={(e) => setStateId(ele.id)}>
                     <CCard>
-                        <CCardImage orientation="top" src={ele.avatar}/>
+                        <CCardImage orientation="top" src={ele.avatar} />
                         <div className='typeItem'>
                             <h5>{ele.type.name}</h5>
                         </div>
-                        <i class='bx bx-heart' onClick={() => onAdd(ele)}></i>
-                        <CCardBody onClick={() => setNoneCheck("")}>
+                        <div className='iconlike' onClick={() => {if(AddUn === false) {
+                            return onAdd(ele)
+                        }}} ><LikeButton parentCallback={callbackFunction}/></div>
+                        <CCardBody onClick={() => setNoneCheck("")}  >
                             <CCardTitle>{ele.title}</CCardTitle>
                             <CCardText>
                                 {ele.address}

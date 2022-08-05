@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@coreui/react'
 import '../styles/Main.css'
 import { Link } from 'react-router-dom'
+import LikeButton from './LikeButton';
 export default function Condotel(props) {
     const { onAdd ,DataFil ,search} = props;
     let DataFill = DataFil.filter((ele) => {
@@ -12,23 +13,28 @@ export default function Condotel(props) {
     const Data = DataFil.filter((ele) => {
         return ele.id === StateId
     })
-
     const [NoneCheck, setNoneCheck] = useState("none")
     const [StateBan, setStateBan] = useState(false)
     setTimeout(() => {
         setStateBan(!StateBan);
     }, 5000)
+    const [AddUn, setAddUn] = useState()
+    const callbackFunction = (childData) => {
+        setAddUn(childData)
+      }
     return (
         <div class="row">
-            {DataFill.map((ele, index) => (
-                <div class="column" key={index} onClick={(e) => setStateId(ele.id)}>
-                    <CCard >
+            {DataFill && DataFill.map((ele, index) => (
+                <div class="column" key={ele.id} onClick={(e) => setStateId(ele.id)}>
+                    <CCard>
                         <CCardImage orientation="top" src={ele.avatar} />
                         <div className='typeItem'>
                             <h5>{ele.type.name}</h5>
                         </div>
-                        <i class='bx bx-heart' onClick={() => onAdd(ele)}></i>
-                        <CCardBody onClick={() => setNoneCheck("")}>
+                        <div className='iconlike' onClick={() => {if(AddUn === false) {
+                            return onAdd(ele)
+                        }}} ><LikeButton parentCallback={callbackFunction}/></div>
+                        <CCardBody onClick={() => setNoneCheck("")}  >
                             <CCardTitle>{ele.title}</CCardTitle>
                             <CCardText>
                                 {ele.address}

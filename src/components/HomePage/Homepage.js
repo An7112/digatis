@@ -192,7 +192,7 @@ export default function Homepage() {
                     </div>
                 </div>
                 <div className='Products'>
-                    {ClickBut === "All" && <AllProduct DataFil={DataFill} search={search} onAdd={onAdd} cartItems={cartItems}/>}
+                    {ClickBut === "All" && <AllProduct DataFil={DataFill} search={search} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>}
                     {ClickBut === "CC" && <ChungCu DataFil={DataFill} search={search} onAdd={onAdd} />}
                     {ClickBut === "BT" && <BietThu DataFil={DataFill} search={search} onAdd={onAdd} />}
                     {ClickBut === "SH" && <Shophouse DataFil={DataFill} search={search} onAdd={onAdd}/>}
